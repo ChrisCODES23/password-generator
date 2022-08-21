@@ -38,11 +38,10 @@ var specialChar = [
   "~",
 ];
 
-// ? variable to store the password generated
-
 // ? User Prompts
 
 function generatePassword() {
+  // ? variable to store the password generated
   var passwordProcessing = [];
   var userLength = prompt(
     "How many characters do you want your password to have? \n Note: It must be between 8 and 128"
@@ -65,6 +64,7 @@ function generatePassword() {
   );
 
   // ? Conditional statements for the user to pick at least 1 character and a number between 8 and 128
+  // ? If condition is  met, then he/she will be alerted with an error and if else (criteria is met) then the function will push through.
 
   if (userLength < 8 || userLength > 128) {
     alert("Error! please generate a number between 8 and 128");
@@ -113,16 +113,15 @@ function generatePassword() {
   }
   return password;
 }
-
+// ?
 var generateBtn = document.querySelector("#generate");
-
+// ? This is the function that will process once the click event occured
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 }
-
-megaArray = [];
-
+passwordProcessing = [];
+// ? An event listener to listen to the click action and if this action happens then the function "writePassword" will happen
 generateBtn.addEventListener("click", writePassword);
